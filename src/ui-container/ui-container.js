@@ -1,3 +1,10 @@
+/**
+ * ui.container  - v0.2.0
+ *
+ * Copyright 2016 - wahlemedia
+ * Licence under MIT
+ */
+
 (function () {
 
     'use strict';
@@ -30,7 +37,7 @@
      * around the main aria and creates an spacer left and right of the container.
      *
      * The Spacer scales within the application an hides on a breakboint less
-     * then angular materials 'gt-md'.
+     * then angular materials 'gt-sm'.
      *
      * @param {integer} uiFlex the width of the spacer
      * @param {string} uiShowOn the default hide aria
@@ -39,9 +46,7 @@
     function uiContainerDirective($compile, $mdMedia, $animate, $uiContainer, $log) {
 
         return {
-            scope: {
-                uiShowOn: '@'
-            },
+            scope: {},
             link: link,
             restrict: ' EA'
         };
@@ -52,7 +57,7 @@
 
             scope.$watch(function () {
 
-                return $mdMedia(scope.uiShowOn);
+                return $mdMedia($uiContainer.getUiShowOn());
 
             }, function (isShown, oldValue) {
 
@@ -89,9 +94,14 @@
      */
     function uiContainerProvider() {
         this.uiFlex = 20;
+        this.uiShowOn = 'gt-sm';
 
         this.setUiFlex = function(value) {
             this.uiFlex = value;
+        };
+
+        this.setUiShowOn = function(value) {
+            this.uiShowOn = value;
         };
 
         this.$get = function() {
@@ -99,6 +109,9 @@
             return {
                 getUiFlex: function() {
                     return self.uiFlex;
+                },
+                getUiShowOn: function() {
+                    return self.uiShowOn;
                 }
             }
         };
