@@ -1,0 +1,22 @@
+{
+  "name": "example",
+  "homepage": "https://github.com/wahlemedia/angular-ui-container",
+  "authors": [
+    "wahlemedia <info@wahlemedia.com>"
+  ],
+  "description": "example for angular ui container",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "angular-material": "^1.0.6"
+  }
+}

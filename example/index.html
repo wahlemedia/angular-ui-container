@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet"
+	      href="bower_components/angular-material/angular-material.min.css">
+
+</head>
+<body ng-app="app">
+
+<md-toolbar layout="row">
+	<div class="md-toolbar-tools">
+		<md-button>Back</md-button>
+		<h2>
+			<span>Toolbar test</span>
+		</h2>
+	</div>
+
+</md-toolbar>
+
+<div layout="row">
+
+
+	<ui-container ui-flex="20"
+	              ui-show-on="gt-sm"
+	              style="background-color: lightcoral"
+	              layout-padding>
+		<h1>Scale the window</h1>
+	</ui-container>
+
+
+</div>
+
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="bower_components/angular-messages/angular-messages.min.js"></script>
+
+<script src="app.js"></script>
+
+<script src="../src/ui-container/ui-container.controller.js"></script>
+<script src="../src/ui-container/ui-container.directive.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "angular-ui-container",
+  "homepage": "https://github.com/wahlemedia/angular-ui-container",
+  "version": "0.1.0",
+  "authors": [
+    "wahlemedia <info@wahlemedia.com>"
+  ],
+  "description": "an angular ui container",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "angular",
+    "container",
+    "ui"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
