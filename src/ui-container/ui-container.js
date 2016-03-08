@@ -13,9 +13,10 @@
 
     angular
         .module('ui.container', [])
-        .directive('uiContainer', uiContainerDirective);
+        .directive('uiContainer', uiContainerDirective)
+        .provider('$uiContainer', uiContainerProvider);
 
-    uiContainerDirective.$inject = ['$compile', '$mdMedia', '$animate', '$log'];
+    uiContainerDirective.$inject = ['$compile', '$mdMedia', '$animate', '$uiContainer', '$log'];
 
 
     /**
@@ -35,36 +36,23 @@
      * @param {string} uiShowOn the default hide aria
      *
      */
-    function uiContainerDirective($compile, $mdMedia, $animate, $log) {
+    function uiContainerDirective($compile, $mdMedia, $animate, $uiContainer, $log) {
 
         return {
             scope: {
-                uiFlex: '@',
                 uiShowOn: '@'
             },
             link: link,
-            restrict: ' EA',
-            controller: function() {},
-            controllerAs: 'vm',
-            bindToController: true
-
+            restrict: ' EA'
         };
 
-        function link(scope, element, attrs, vm) {
+        function link(scope, element, attrs) {
 
-            //scope.$on('ui.showSpacer', function (event, data) {
-            //
-            //    scope.showSpacer = data.showSpacer;
-            //
-            //    element.parent().find('.ui-spacer')
-            //
-            //});
-
-           // var breakpoint = 'gt-sm';
+            $log.log('uiFlex:', $uiContainer.getUiFlex());
 
             scope.$watch(function () {
 
-                return $mdMedia(scope.vm.uiShowOn);
+                return $mdMedia(scope.uiShowOn);
 
             }, function (isShown, oldValue) {
 
@@ -81,7 +69,7 @@
 
             });
 
-            var spacer = '<div flex="' + scope.vm.uiFlex + '" class="ui-spacer">';
+            var spacer = '<div flex="' + $uiContainer.getUiFlex() + '" class="ui-spacer">';
 
             element.parent().prepend(spacer);
             element.parent().append(spacer);
@@ -89,6 +77,31 @@
 
             $compile(element.contents())(scope);
         }
+    }
+
+    /**
+     * @ngdocs provider
+     * @name uiContainerProvider
+     * @module ui.container
+     *
+     * @description a provider to configure the flex width of the spacer element.
+     *
+     */
+    function uiContainerProvider() {
+        this.uiFlex = 20;
+
+        this.setUiFlex = function(value) {
+            this.uiFlex = value;
+        };
+
+        this.$get = function() {
+            var self = this;
+            return {
+                getUiFlex: function() {
+                    return self.uiFlex;
+                }
+            }
+        };
     }
 
 })();

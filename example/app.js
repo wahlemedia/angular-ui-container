@@ -1,5 +1,4 @@
-
-(function() {
+(function () {
 
     angular
         .module('app', [
@@ -9,8 +8,15 @@
             'ngMaterial',
             'ui.container'
         ])
-        .controller('AppCtrl', function() {
+        .config(AppConfig)
+        .controller('AppCtrl', AppCtrl);
 
-        });
+    function AppConfig($uiContainerProvider) {
 
+        $uiContainerProvider.setUiFlex(20);
+    }
+
+    function AppCtrl() {
+
+    }
 })();
