@@ -2,13 +2,39 @@
 
     'use strict';
 
-    angular
-        .module('ui.container')
-        .directive('uiContainer', uiContainerDirective);
+    /**
+     * @ngdoc module
+     * @name ui.container
+     *
+     * @description an ui container that extends the angular-material
+     * framework an creates an wrapper on the main content
+     *
+     */
 
+    angular
+        .module('ui.container', [])
+        .directive('uiContainer', uiContainerDirective);
 
     uiContainerDirective.$inject = ['$compile', '$mdMedia', '$animate', '$log'];
 
+
+    /**
+     * @ngdocs directive
+     * @name uiContainerDirective
+     * @module ui.container
+     *
+     * @restrict EA
+     *
+     * @description create an ui-container directive that create an flex-container
+     * around the main aria and creates an spacer left and right of the container.
+     *
+     * The Spacer scales within the application an hides on a breakboint less
+     * then angular materials 'gt-md'.
+     *
+     * @param {integer} uiFlex the width of the spacer
+     * @param {string} uiShowOn the default hide aria
+     *
+     */
     function uiContainerDirective($compile, $mdMedia, $animate, $log) {
 
         return {
@@ -17,9 +43,8 @@
                 uiShowOn: '@'
             },
             link: link,
-            // templateUrl: './app/components/ui-container/ui-container.html',
             restrict: ' EA',
-            controller: 'UiContainerCtrl',
+            controller: function() {},
             controllerAs: 'vm',
             bindToController: true
 
