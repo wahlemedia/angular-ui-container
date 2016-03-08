@@ -51,6 +51,6 @@ width and the brakepoint.
 The default flex width is `20` and the brakepoint is set to `gt-sm`. 
 
 The Breakpoints are uses the material design breakpoint.
-See the [Angular Material](https://material.angularjs.org/latest/layout/introduction) for more information.
+See the [Angular Material](https://material.angularjs.org/latest/layout/introduction) documentation for more information.
 
 

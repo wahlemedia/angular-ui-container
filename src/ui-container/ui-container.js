@@ -1,5 +1,5 @@
 /**
- * ui.container  - v0.2.0
+ * ui.container  - v0.2.1
  *
  * Copyright 2016 - wahlemedia
  * Licence under MIT
@@ -63,14 +63,9 @@
 
                 var e = element.parent().find('.ui-spacer');
 
-                //  $animate[isShown ? 'addClass' : 'revmoveClass'](element, 'hide');
-                if(isShown) {
-                    $animate.removeClass(e[0], 'hide');
-                    $animate.removeClass(e[1], 'hide');
-                } else {
-                    $animate.addClass(e[0], 'hide');
-                    $animate.addClass(e[1], 'hide');
-                }
+                angular.forEach(e, function(value) {
+                    $animate[isShown ? 'removeClass' : 'addClass' ](value, 'hide');
+                });
 
             });
 
@@ -96,21 +91,21 @@
         this.uiFlex = 20;
         this.uiShowOn = 'gt-sm';
 
-        this.setUiFlex = function(value) {
+        this.setUiFlex = function (value) {
             this.uiFlex = value;
         };
 
-        this.setUiShowOn = function(value) {
+        this.setUiShowOn = function (value) {
             this.uiShowOn = value;
         };
 
-        this.$get = function() {
+        this.$get = function () {
             var self = this;
             return {
-                getUiFlex: function() {
+                getUiFlex: function () {
                     return self.uiFlex;
                 },
-                getUiShowOn: function() {
+                getUiShowOn: function () {
                     return self.uiShowOn;
                 }
             }
