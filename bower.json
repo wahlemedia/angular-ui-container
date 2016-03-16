@@ -6,13 +6,17 @@
     "wahlemedia <info@wahlemedia.com>"
   ],
   "description": "an angular ui container",
-  "main": "",
+  "main": "./src/ui-container/ui-container.js",
   "moduleType": [],
   "keywords": [
     "angular",
     "container",
     "ui"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wahlemedia/angular-ui-container.git"
+  },
   "license": "MIT",
   "ignore": [
     "**/.*",
