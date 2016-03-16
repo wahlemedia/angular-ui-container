@@ -1,5 +1,5 @@
 /**
- * ui.container  - v0.2.1
+ * ui.container  - v0.2.2
  *
  * Copyright 2016 - wahlemedia
  * Licence under MIT
@@ -64,7 +64,7 @@
                 var e = element.parent().find('.ui-spacer');
 
                 angular.forEach(e, function(value) {
-                    $animate[isShown ? 'removeClass' : 'addClass' ](value, 'hide');
+                    $animate[isShown ? 'removeClass' : 'addClass' ](value, 'hide-spacer');
                 });
 
             });
